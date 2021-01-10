@@ -1,12 +1,13 @@
-# kscope
+# geomview.js
 
-kscope is client-side only browser application to render a 3D view of maps.
-The input is the map features in an area in GeoJSON format. kscope is part
-of the Kartta Labs suite of applications.
+Minimal 3d viewer using THREE.js, somewhat inspried by geomview.
 
-To run a local copy of kscope
+### To run a local copy
 
-1. Copy `config.example.js` to `config.js`
-2. Set the backend endpoint in `config.js` file.
-3. Run a webserver in the `kscope` directory with your favorite http server application (e.g., `python -m SimpleHTTPServer`)
-4. You can visit the application at http://localhost:8000 or any other port that you chose at step 3.
+1. Run a webserver in the `geomview.js` directory with your favorite http server (e.g., `python -m SimpleHTTPServer`)
+4. Browse to http://localhost:8000 or whatever other port you chose at step 1.
+
+### Notes
+
+* The current mouse interation UI is clunky and is more or less inherited from github.com/kartta-labs/kscope, which
+  I copied most of this code from.  To use it, drag the mouse to turn your head, and use W A S D keys to move around.
