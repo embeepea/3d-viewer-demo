@@ -19,7 +19,7 @@ const Settings = {
   'fieldOfView': 45.0,
   'nearPlane': 1.0,
   'farPlane': 5000,
-  'walkSpeed': 13,
+  'walkSpeed': 0.1,
 };
 
 export {Settings};

@@ -32,10 +32,6 @@ class App {
     this.container.appendChild( this.renderer.domElement );
     this.eventTracker = new EventTracker(this.container);
 
-    this.center = new THREE.Object3D();
-    this.center.position.set(0,0,0);
-    this.scene.add(this.center);
-
     this.eventTracker.setMouseDownListener(e => {
     }).setMouseMoveListener(e => {
     }).setTouchStartListener(p => {
@@ -179,9 +175,9 @@ class App {
 
     this.cameraXAngle = -0.4;
     this.cameraYAngle = -0.3;
-    this.cameraX = -117.28873476583946;
-    this.cameraY = 200;
-    this.cameraZ = 521.9983439901898;
+    this.cameraX = -2;
+    this.cameraY = 2;
+    this.cameraZ = 5;
     this.updateCamera();
 
     this.scene.add(this.camera);
@@ -189,12 +185,25 @@ class App {
 
   initializeAxes() {
     this.axes = Axes.axes3D({
-      length: 200,
-      tipRadius: 5.0,
-      tipHeight: 10.0
+      length: 5.0,
+      tipRadius: 0.05,
+      tipHeight: 0.1
     });
     this.axes.position.set(0,0.0,0);
     this.scene.add(this.axes);
+  }
+
+  // Asyncly load an obj file.  Returns a promise that resolves when the object has been loaded and added to
+  // the scene.  Pass the returned promise to this.requestRenderAfterEach() to ensure that the scene gets
+  // re-rendered with the new object.
+  loadObjFile(file) {
+    return fetch(file)
+    .then(response => response.text())
+    .then(contents => {
+      const objLoader = new THREE.OBJLoader();
+      const object3D = objLoader.parse(contents);
+      this.scene.add(object3D);
+    });
   }
 
   // Request a single re-render in the next possible animation frame.  Note this function does not
@@ -224,6 +233,7 @@ class App {
 
   initialize() {
     this.initializeAxes();
+    this.requestRenderAfterEach(this.loadObjFile("dodec.obj"));
 
     // lights
     this.initializeLights();
