@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>3d Viewer</title>
+    <style>
+      body {
+        overflow: hidden;
+        display: flex;
+        flex-flow: column;
+        height: 100vh;
+        margin:0;
+        padding:0;
+      }
+      #viewport {
+        flex: 1;
+        position: relative;
+      }
+    </style>
+    <script src="https://www.gstatic.com/external_hosted/threejs-r108/three.js"></script>
+    <script type="module" src="main.js"></script>
+  </head>
+  <body>
+    <div id="viewport" tabindex="-1"></div>
+  </body>
+</html>
