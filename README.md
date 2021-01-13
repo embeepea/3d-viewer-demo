@@ -1,10 +1,10 @@
-# geomview.js
+# 3d-viewer-demo
 
-Minimal 3d viewer using THREE.js, somewhat inspried by geomview.
+A very minimal 3d viewer using THREE.js
 
 ### To run a local copy
 
-1. Run a webserver in the `geomview.js` directory with your favorite http server (e.g., `python -m SimpleHTTPServer`)
+1. Run a webserver in the `3d-viewer-demo` directory with your favorite http server (e.g., `python -m SimpleHTTPServer`)
 4. Browse to http://localhost:8000 or whatever other port you chose at step 1.
 
 ### Notes
